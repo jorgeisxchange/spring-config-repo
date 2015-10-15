@@ -1,0 +1,30 @@
+server:
+ port: 8761
+
+info:
+  component: Discovery Service (Eureka)
+
+endpoints:
+ restart:
+  enabled: true
+ shutdown:
+  enabled: true
+  
+spring:
+ rabbitmq:
+  addresses: ${vcap.services.${PREFIX:}rabbitmq.credentials.uri:amqp://${RABBITMQ_HOST:localhost}:${RABBITMQ_PORT:5672}}
+
+---
+spring:
+  profiles: dev
+eureka:
+ server:
+  waitTimeInMsWhenSyncEmpty: 0
+ instance:
+  hostname: localhost
+  preferIpAddress: true
+ client:
+  registerWithEureka: false
+  fetchRegistry: false
+  serviceUrl:
+   defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

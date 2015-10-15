@@ -1,0 +1,5 @@
+server:
+  port: 7979
+
+info:
+  component: Hystrix Monitor Dashboard

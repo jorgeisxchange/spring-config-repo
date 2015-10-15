@@ -1,0 +1,15 @@
+server:
+  port: 8083
+
+info:
+  component: Product Composite Service
+
+---
+spring:
+  profiles: dev
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
